@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 .vscode/settings.json
+=======
+.vscode/
+__pycache__/
+.env
+>>>>>>> 17983da89ed08fcbbde1bc9af79c00e53d96ea88
