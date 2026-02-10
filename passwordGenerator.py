@@ -88,7 +88,7 @@ def main():
     excel_path = Path("Password_log.xlsx")
     
     # Name of the worksheet inside the Excel file
-    shet_name = "Sheet1"
+    sheet_name = "Sheet1"
     
     # Create a one-row DataFrame representing the new log entry
     #Includes current timestamp, website, and generated password
@@ -98,6 +98,38 @@ def main():
         "Password" : generated_password
     }])
     
+    # Check if the Excel file already exists on disk
+    if excel_path.exists():
+        try:
+            # Read the existing sheet into a DataFrame
+            df_existing = pd.read_excel(excel_path, sheet_name=sheet_name)
+
+            # Combine old data with the new row (stack rows)
+            # ignore_index=True resets row numbering cleanly
+            df_final = pd.concat([df_existing, new_row], ignore_index=True)
+
+        # If the sheet name doesn't exist or can't be read
+        except ValueError:
+            # Fall back to using only the new row
+            df_final = new_row
+
+        # Open Excel in append mode (file already exists)
+        mode = "a"
+
+        # When writing, replace the sheet's contents with df_final
+        if_sheet_exists = "replace"
+
+    # If the Excel file does NOT exist
+    else:
+        # No previous data, so final data is just the new row
+        df_final = new_row
+
+        # Create a brand-new Excel file
+        mode = "w"
+
+        # No sheet-existence rule needed in write mode
+        if_sheet_exists = None
+         
 
 
 
