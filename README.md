@@ -51,3 +51,11 @@ Run the script:
 
 **python passwordGenerator.py**
 
+⚠️ Security Note
+
+This tool stores passwords in plain text inside an Excel file.
+
+It is intended for learning purposes.
+
+For real-world use, passwords should be encrypted or stored in a secure password manager.
+
