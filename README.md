@@ -4,7 +4,7 @@ A secure Python password generator that creates strong random passwords and auto
 
 Built as a learning project to practice Python, data handling, and file automation.
 
-✨ Features
+✨ **Features**
 
 • Cryptographically secure password generation (secrets module)
 
@@ -22,7 +22,7 @@ Built as a learning project to practice Python, data handling, and file automati
 
 • Clean and documented code
 
-🛠️ Technologies Used
+🛠️ **Technologies Used**
 
 Python 3
 
@@ -34,7 +34,7 @@ Python 3
 
 • pathlib — file path handling
 
-📦 Installation
+📦 **Installation**
 
 1.  Clone the repository:
 
@@ -45,9 +45,9 @@ Python 3
 
       **pip install pandas openpyxl**
 
-🚀 Usage
+🚀 **Usage**
 
 Run the script:
 
-python passwordGenerator.py
+**python passwordGenerator.py**
 
