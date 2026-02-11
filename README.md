@@ -1,4 +1,4 @@
-🔐 Password Generator
+🔐 **Password Generator**
 
 A secure Python password generator that creates strong random passwords and automatically logs them to an Excel file with timestamps and associated websites.
 
@@ -38,12 +38,12 @@ Python 3
 
 1.  Clone the repository:
 
-      git clone https://github.com/GurberGink/Password-Generator-.git
-      cd password-generator
+      **git clone https://github.com/GurberGink/Password-Generator-.git**
+      **cd password-generator**
 
 2. Install dependencies:
 
-      pip install pandas openpyxl
+      **pip install pandas openpyxl**
 
 🚀 Usage
 
