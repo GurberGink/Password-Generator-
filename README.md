@@ -38,7 +38,7 @@ Python 3
 
 1.  Clone the repository:
 
-  git clone https://github.com/GurberGink/password-generator.git
+  git clone https://github.com/GurberGink/Password-Generator.git
   cd password-generator
 
 2. Install dependencies:
