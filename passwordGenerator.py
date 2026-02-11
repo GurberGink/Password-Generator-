@@ -43,7 +43,7 @@ def generate_password(length : int) -> str:
     return "".join(characters)
 
 # Automatically resize Excel columns based on their content
-def autosize_columns(df, ws):
+def autosize_columns(ws, df):
     
     # Iterate through DataFrame columns with 1-based index for Excel
     for i, col in enumerate(df.columns, 1):
@@ -93,7 +93,7 @@ def main():
     # Create a one-row DataFrame representing the new log entry
     #Includes current timestamp, website, and generated password
     new_row = pd.DataFrame([{
-        "Timestamp" : datetime.now().isoformat(timespec = "Seconds"),
+        "Timestamp" : datetime.now().isoformat(timespec = "seconds"),
         "Website" : website,
         "Password" : generated_password
     }])
@@ -130,7 +130,24 @@ def main():
         # No sheet-existence rule needed in write mode
         if_sheet_exists = None
          
+    # Open an Excel writer context to safely write to the workbook
+    # Uses openpyxl as the engine and the previously chosen mode/settings
+    with pd.ExcelWriter(excel_path, engine="openpyxl", mode=mode, if_sheet_exists=if_sheet_exists) as writer:              
 
+        # Write the final DataFrame to the specified sheet
+        # index=False prevents pandas from writing row numbers as a column
+        df_final.to_excel(writer, sheet_name=sheet_name, index=False)
+
+        # Access the underlying openpyxl worksheet object for formatting
+        ws = writer.sheets[sheet_name]
+
+        # Auto-size columns based on content length
+        autosize_columns(ws, df_final)
+
+    # Confirm save location to the user
+    print(f"Password saved to: {excel_path}")
+
+main()
 
 
     
