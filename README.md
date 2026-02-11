@@ -51,7 +51,7 @@ Run the script:
 
 **python passwordGenerator.py**
 
-⚠️ Security Note
+⚠️ **Security Note**
 
 This tool stores passwords in plain text inside an Excel file.
 
