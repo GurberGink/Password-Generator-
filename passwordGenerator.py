@@ -4,6 +4,7 @@ import pandas as pd
 from openpyxl.utils import get_column_letter
 from datetime import datetime
 from pathlib import Path
+from time import sleep
 
 # Character pools
 upper_letters = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ") 
@@ -146,6 +147,7 @@ def main():
 
     # Confirm save location to the user
     print(f"Password saved to: {excel_path}")
+    sleep(3)
 
 main()
 
